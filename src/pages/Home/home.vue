@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import HomeSwiper from './components/swiper';
+import HomeSwiper from './components/swiper'
 export default {
   name: 'Home',
   components: {
