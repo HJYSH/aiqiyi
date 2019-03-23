@@ -25,7 +25,6 @@ export default {
   methods: {
     auto () {
       var key = -1
-      var square=0
       var length=this.length
       var ul=this.ul
       var msg=this.msg
@@ -114,7 +113,7 @@ export default {
     .desc
       position: absolute
       top:0
-      right:0
+      right:120.6px
       width:300px
       height:520px
       background: rgba(0,0,0,.7)
