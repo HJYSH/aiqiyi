@@ -144,6 +144,11 @@ export default {
       .item-img
         width:100%
         height: 100%
+        &:hover
+          position: relative
+          left: -5%
+          top: -5%
+          width: 110%
       .desc
         position:absolute
         left:0
