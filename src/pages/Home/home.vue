@@ -5,6 +5,7 @@
     <home-nav></home-nav>
     <div class="content">
       <home-recommend></home-recommend>
+      <home-advert></home-advert>
     </div>
   </div>
 </template>
@@ -14,13 +15,15 @@ import HomeSwiper from './components/swiper'
 import HomeHeader from './components/header'
 import HomeNav from './components/nav'
 import HomeRecommend from './components/recommend'
+import HomeAdvert from './components/advert'
 export default {
   name: 'Home',
   components: {
     HomeSwiper,
     HomeHeader,
     HomeNav,
-    HomeRecommend
+    HomeRecommend,
+    HomeAdvert
   }
 }
 </script>
