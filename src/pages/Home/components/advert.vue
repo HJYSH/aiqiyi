@@ -72,6 +72,7 @@ export default {
             animate(box,0)
           }
         }else{
+          // 这里用onmouseenter替代onmouseover因为onmouseenter不支持冒泡
           child[i].onmouseenter=function () {
             animate(box,-i*215)
             child[i].className="content handle-hover"
@@ -148,7 +149,7 @@ export default {
             width:860px
             overflow:hidden
       .handle-hover
-        width:1075px
+        width:1070px
         animation:all 0.7s
       .handle-hidden
         animation: reback 0.7s
