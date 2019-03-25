@@ -64,10 +64,10 @@ export default {
         }
       }
       var timer=setInterval(autoPlay,2000)
-      swiper.onmouseover = function () {
+      swiper.onmouseenter = function () {
         clearInterval(timer)
       }
-      swiper.onmouseout = function () {
+      swiper.onmouseleave = function () {
         timer=setInterval(autoPlay,2000)
       }
     },

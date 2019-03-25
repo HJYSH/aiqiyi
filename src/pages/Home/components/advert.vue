@@ -57,45 +57,101 @@
 <script>
 export default {
   name: 'HomeAdvert',
+  methods: {
+    auto () {
+      var box= this.$refs.box
+      var child=this.$refs.box.children
+      for(let i=0;i<=child.length-1;i++){
+        if(i===child.length-1){
+          child[i].onmouseenter=function () {
+            animate(box,-(i-1)*215)
+            child[i].className="content handle-hover"
+          }
+          child[i].onmouseleave=function () {
+            child[i].className="content handle-hidden"
+            animate(box,0)
+          }
+        }else{
+          child[i].onmouseenter=function () {
+            animate(box,-i*215)
+            child[i].className="content handle-hover"
+          }
+          child[i].onmouseleave=function () {
+            child[i].className="content handle-hidden"
+            animate(box,0)
+          }
+        }
+      }
+      function animate(ele,target){
+        clearInterval(ele.timer);
+        var speed = (target>ele.offsetLeft)?10:-10;
+        ele.timer = setInterval(function () {
+          var val = target - ele.offsetLeft;
+          ele.style.left = ele.offsetLeft + speed + "px";
+          if(Math.abs(val)<Math.abs(speed)){
+            ele.style.left = target + "px";
+            clearInterval(ele.timer);
+          }
+        },10)
+      }
+    }
+  },
+  mounted() {
+    this.auto()
+  }
 }
 </script>
 
 <style lang="stylus" scoped>
-@keyframes width{
-  from{width:0}
+@keyframes move{
+  from{left:0}
+  to {left:-215px}
+}
+@keyframes all{
+  from{width:210px}
   to {width:1090px}
 }
+@keyframes reback{
+  from{width:1090px}
+  to {width:210px}
+}
   .advert
+    position:relative
     font-size :14px
-    width: 100%
     overflow:hidden
+    width: 100%
     h1
       font-size 22px
       font-weight :600
     .box
-      position: relative
-      width: 200%
+      position:relative
+      overflow:hidden
+      width: 400%
       &:after
         content:''
         display:table
         clear:both
       .content
         float:left
-        width:215px
+        width:210px
         overflow:hidden
-        margin-right:5px
-        &:hover
-          width:1080px
-          animation:width 2s
+        padding-right:5px
         .bigBox
+          overflow: hidden
           width:1080px
           .show
             float:left
             width:210px
-            margin-right:5px
+            padding-right:5px
           .hidden
             float:left
-            width:865px
+            width:860px
             overflow:hidden
-            animation:width 1s
+      .handle-hover
+        width:1075px
+        animation:all 0.7s
+      .handle-hidden
+        animation: reback 0.7s
+    .box-hover
+      animation:move 0.7s
 </style>
