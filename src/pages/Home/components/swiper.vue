@@ -2,15 +2,17 @@
   <div class="scroll" ref="swiper">
     <div class="box">
       <ul id="ul" ref="ul">
-        <li><img src="//pic1.iqiyipic.com/common/lego/20190319/9654cd0b58854f43a040b883feab70cf.webp"/></li>
-        <li><img src="//pic2.iqiyipic.com/common/lego/20190320/696960add9c442888f6a44191677cfe0.webp"  /></li>
-        <li><img src="//pic1.iqiyipic.com/common/lego/20190319/5a2341e2f9e04cb3b5a3bf5577a46e15.jpg" /></li>
-        <li><img src="//pic0.iqiyipic.com/common/lego/20190319/8bb1d5556b804534af532f6bd31f0fea.jpg"/></li>
+        <li><img src="http://pic1.iqiyipic.com/common/lego/20190319/9654cd0b58854f43a040b883feab70cf.webp"/></li>
+        <li><img src="http://pic2.iqiyipic.com/common/lego/20190320/696960add9c442888f6a44191677cfe0.webp"  /></li>
+        <li><img src="http://pic1.iqiyipic.com/common/lego/20190319/5a2341e2f9e04cb3b5a3bf5577a46e15.jpg" /></li>
+        <li><img src="http://pic0.iqiyipic.com/common/lego/20190319/8bb1d5556b804534af532f6bd31f0fea.jpg"/></li>
       </ul>
     </div>
     <div class="desc">
       <ul ref="msg">
-        <li>这是新的呼唤，这是爱的奉献</li>
+        <li>
+          <h3>青春斗</h3><span> ：</span><p>郑爽为室友脱单操碎了新</p>
+        </li>
         <li>这是新的呼唤，这是爱的奉献</li>
         <li>这是新的呼唤，这是爱的奉献</li>
         <li>这是新的呼唤，这是爱的奉献</li>
