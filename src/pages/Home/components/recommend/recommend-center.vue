@@ -3,11 +3,11 @@
     <div class="swiper" ref="swiper">
       <div ref="ul">
         <div>
-          <img class="item-img" src="https://pic2.iqiyipic.com/lequ/20190324/4615fdcb4b49421a9d42fa63f0e5b4e2.jpg" />
+          <img class="item-img" src="http://pic0.iqiyipic.com/lequ/20190322/9a6401a7f59446e684a93aea4bb16573.jpg" />
           <div class="desc">1546</div>
         </div>
         <div>
-          <img class="item-img" src="http://pic3.iqiyipic.com/lequ/20190323/d08a364df2174d069dabc57fafc3d6a5.jpg" />
+          <img class="item-img" src="http://pic0.iqiyipic.com/lequ/20190322/9a6401a7f59446e684a93aea4bb16573.jpg" />
           <div class="desc">45748</div>
         </div>
         <div>
