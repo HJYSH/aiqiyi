@@ -6,6 +6,7 @@
     <div class="content">
       <home-recommend></home-recommend>
       <home-advert></home-advert>
+      <home-internet></home-internet>
     </div>
   </div>
 </template>
@@ -16,6 +17,7 @@ import HomeHeader from './components/header'
 import HomeNav from './components/nav'
 import HomeRecommend from './components/recommend'
 import HomeAdvert from './components/advert'
+import HomeInternet from './components/Internet-movie'
 export default {
   name: 'Home',
   components: {
@@ -23,7 +25,8 @@ export default {
     HomeHeader,
     HomeNav,
     HomeRecommend,
-    HomeAdvert
+    HomeAdvert,
+    HomeInternet
   }
 }
 </script>
@@ -31,6 +34,6 @@ export default {
 <style lang="stylus" scoped>
   .content
     width: 1285px
-    height:488px
     margin:0 auto
+    overflow: hidden
 </style>
