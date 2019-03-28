@@ -18,7 +18,7 @@
         <span>说唱有新番</span>
       </div>
     </div>
-    <div class="content">
+    <div class="content" ref="content">
       <div class="content-left">
         <div class="left-item" :key="item.id" v-for="item of left1" v-show="show">
           <div class="left-img">
@@ -69,11 +69,11 @@
           id:'003',
           h:'范逼逼美容院开业 李晨范丞丞携亲友团到场剪裁',
           p:'昨天，范冰冰开的美容院开业'
-      }
+          }
         ],
         left2:[
           {
-            imgUrl:'https://pic1.iqiyipic.com/common/lego/20190327/ddc3e63f89ff470f8ca099b38f69353e.jpg',
+            imgUrl:'https://pic1.iqiyipic.com/common/lego/20190328/63c6b02052894ec48782b7f1697efa7c.jpg',
             id:'004',
             h:'85范逼逼美容院开业 李晨范丞丞携亲友团到场剪裁',
             p:'745昨天，范冰冰开的美容院开业'
@@ -146,7 +146,19 @@
     methods: {
       toggle () {
         this.show=this.show===true?undefined:true
+      },
+      auto(){
+        var timer = setInterval(this.toggle, 2000)
+        this.$refs.content.onmouseenter = function () {
+          clearInterval(timer)
+        }
+        this.$refs.content.onmouseleave = function () {
+          setInterval(this.toggle,2000)
+        }
       }
+    },
+    mounted() {
+      this.auto()
     }
   }
 </script>
