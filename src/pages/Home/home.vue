@@ -7,6 +7,7 @@
       <home-recommend></home-recommend>
       <home-advert></home-advert>
       <home-internet></home-internet>
+      <home-entertainment></home-entertainment>
     </div>
   </div>
 </template>
@@ -18,6 +19,7 @@ import HomeNav from './components/nav'
 import HomeRecommend from './components/recommend'
 import HomeAdvert from './components/advert'
 import HomeInternet from './components/Internet-movie'
+import HomeEntertainment from './components/entertainment'
 export default {
   name: 'Home',
   components: {
@@ -26,7 +28,8 @@ export default {
     HomeNav,
     HomeRecommend,
     HomeAdvert,
-    HomeInternet
+    HomeInternet,
+    HomeEntertainment
   }
 }
 </script>
