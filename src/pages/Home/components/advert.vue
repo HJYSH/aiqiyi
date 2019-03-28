@@ -2,51 +2,11 @@
   <div class="advert">
     <h1>推广广告</h1>
     <div class="box" ref="box">
-      <div class="content">
+      <div class="content" v-for="item of list" :key="item.id">
         <div class="bigBox">
-          <div class="show"><img src="https://static-s.iqiyi.com/common/20181022/cupid/9f/e0/d76b9239-e3e0-4dac-b4d4-c5d5c51c6a69.jpg" /></div>
+          <div class="show"><img :src="item.imgUrl1" /></div>
           <div class="hidden">
-            <img src="https://static-s.iqiyi.com/common/20181022/cupid/c0/69/8746f919-2ad2-4e56-9de0-a635a8b23cc0.jpg" />
-          </div>
-        </div>
-      </div>
-      <div class="content">
-        <div class="bigBox">
-          <div class="show"><img src="https://static-s.iqiyi.com/common/20181022/cupid/9f/e0/d76b9239-e3e0-4dac-b4d4-c5d5c51c6a69.jpg" /></div>
-          <div class="hidden">
-            <img src="https://static-s.iqiyi.com/common/20181022/cupid/c0/69/8746f919-2ad2-4e56-9de0-a635a8b23cc0.jpg" />
-          </div>
-        </div>
-      </div>
-      <div class="content">
-        <div class="bigBox">
-          <div class="show"><img src="https://static-s.iqiyi.com/common/20181022/cupid/9f/e0/d76b9239-e3e0-4dac-b4d4-c5d5c51c6a69.jpg" /></div>
-          <div class="hidden">
-            <img src="https://static-s.iqiyi.com/common/20181022/cupid/c0/69/8746f919-2ad2-4e56-9de0-a635a8b23cc0.jpg" />
-          </div>
-        </div>
-      </div>
-      <div class="content">
-        <div class="bigBox">
-          <div class="show"><img src="https://static-s.iqiyi.com/common/20181022/cupid/9f/e0/d76b9239-e3e0-4dac-b4d4-c5d5c51c6a69.jpg" /></div>
-          <div class="hidden">
-            <img src="https://static-s.iqiyi.com/common/20181022/cupid/c0/69/8746f919-2ad2-4e56-9de0-a635a8b23cc0.jpg" />
-          </div>
-        </div>
-      </div>
-      <div class="content">
-        <div class="bigBox">
-          <div class="show"><img src="https://static-s.iqiyi.com/common/20181022/cupid/9f/e0/d76b9239-e3e0-4dac-b4d4-c5d5c51c6a69.jpg" /></div>
-          <div class="hidden">
-            <img src="https://static-s.iqiyi.com/common/20181022/cupid/c0/69/8746f919-2ad2-4e56-9de0-a635a8b23cc0.jpg" />
-          </div>
-        </div>
-      </div>
-      <div class="content">
-        <div class="bigBox">
-          <div class="show"><img src="https://static-s.iqiyi.com/common/20181022/cupid/9f/e0/d76b9239-e3e0-4dac-b4d4-c5d5c51c6a69.jpg" /></div>
-          <div class="hidden">
-            <img src="https://static-s.iqiyi.com/common/20181022/cupid/c0/69/8746f919-2ad2-4e56-9de0-a635a8b23cc0.jpg" />
+            <img :src="item.imgUrl2" />
           </div>
         </div>
       </div>
@@ -57,6 +17,42 @@
 <script>
 export default {
   name: 'HomeAdvert',
+  data () {
+    return{
+      list:[
+        {
+          id:'001',
+          imgUrl1:'https://static-s.iqiyi.com/common/20181022/cupid/9f/e0/d76b9239-e3e0-4dac-b4d4-c5d5c51c6a69.jpg',
+          imgUrl2:'https://static-s.iqiyi.com/common/20181022/cupid/c0/69/8746f919-2ad2-4e56-9de0-a635a8b23cc0.jpg'
+        },
+        {
+          id:'002',
+          imgUrl1:'https://static-s.iqiyi.com/common/20181022/cupid/9f/e0/d76b9239-e3e0-4dac-b4d4-c5d5c51c6a69.jpg',
+          imgUrl2:'https://static-s.iqiyi.com/common/20181022/cupid/c0/69/8746f919-2ad2-4e56-9de0-a635a8b23cc0.jpg'
+        },
+        {
+          id:'003',
+          imgUrl1:'https://static-s.iqiyi.com/common/20181022/cupid/9f/e0/d76b9239-e3e0-4dac-b4d4-c5d5c51c6a69.jpg',
+          imgUrl2:'https://static-s.iqiyi.com/common/20181022/cupid/c0/69/8746f919-2ad2-4e56-9de0-a635a8b23cc0.jpg'
+        },
+        {
+          id:'004',
+          imgUrl1:'https://static-s.iqiyi.com/common/20181022/cupid/9f/e0/d76b9239-e3e0-4dac-b4d4-c5d5c51c6a69.jpg',
+          imgUrl2:'https://static-s.iqiyi.com/common/20181022/cupid/c0/69/8746f919-2ad2-4e56-9de0-a635a8b23cc0.jpg'
+        },
+        {
+          id:'005',
+          imgUrl1:'https://static-s.iqiyi.com/common/20181022/cupid/9f/e0/d76b9239-e3e0-4dac-b4d4-c5d5c51c6a69.jpg',
+          imgUrl2:'https://static-s.iqiyi.com/common/20181022/cupid/c0/69/8746f919-2ad2-4e56-9de0-a635a8b23cc0.jpg'
+        },
+        {
+          id:'006',
+          imgUrl1:'https://static-s.iqiyi.com/common/20181022/cupid/9f/e0/d76b9239-e3e0-4dac-b4d4-c5d5c51c6a69.jpg',
+          imgUrl2:'https://static-s.iqiyi.com/common/20181022/cupid/c0/69/8746f919-2ad2-4e56-9de0-a635a8b23cc0.jpg'
+        },
+      ]
+    }
+  },
   methods: {
     auto () {
       var box= this.$refs.box
