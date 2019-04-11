@@ -5,7 +5,7 @@
         <div class="list" :class="{item : isThis}">
           <div class="list-item">
             <div>娱乐</div>
-            <div>娱乐</div>
+            <div>资讯</div>
           </div>
           <div class="list-item">
             <div>电影</div>
@@ -127,7 +127,7 @@ export default {
         font-size: 0;
         white-space: nowrap
         color:#ccc
-        margin-bottom:30px
+        margin-bottom:30px4
         .list
           display:inline-block
           padding-left:23px
