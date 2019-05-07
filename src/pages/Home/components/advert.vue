@@ -129,6 +129,7 @@ export default {
         display:table
         clear:both
       .content
+        position:relative
         float:left
         width:210px
         overflow:hidden

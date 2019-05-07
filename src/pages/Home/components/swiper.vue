@@ -50,6 +50,7 @@ export default {
     auto () {
       var key = -1
       var length=this.$refs.ul.children.length
+      var t=length-1
       var ul=this.$refs.ul
       var msg=this.$refs.msg.children
       var swiper= this.$refs.swiper
@@ -61,11 +62,11 @@ export default {
         Arr[i].style.width=(1/length)*100+"%"
       }
       ////鼠标移动到某个li上，相对ul的li显示
-      for (let i=0;i<=length-1;i++) {
+      for (let i=0;i<=t;i++) {
         msg[i].onmouseover=function() {
           key=i
           ul.style.left=-i*100+"%"
-          for (let i=0 ;i<=length-1;i++){
+          for (let i=0 ;i<=t;i++){
             msg[i].className=''
           }
           msg[key].className="handleSelected"
@@ -73,16 +74,16 @@ export default {
       }
       function autoPlay() {
         key++
-        if (key>length-1){
+        if (key>t){
           ul.style.left = 0
           key =0
-          for (let i=0 ;i<=length-1;i++){
+          for (let i=0 ;i<=t;i++){
             msg[i].className=''
           }
           msg[key].className="handleSelected"
         } else{
           ul.style.left = -key*100+"%"
-          for (let i=0 ;i<=length-1;i++){
+          for (let i=0 ;i<=t;i++){
             msg[i].className=''
           }
           msg[key].className="handleSelected"
