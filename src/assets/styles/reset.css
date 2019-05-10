@@ -23,3 +23,11 @@ html {overflow-x: hidden;height: 100%;font-size: 50px;-webkit-tap-highlight-colo
 body {-webkit-text-size-adjust: none;font: 12px/1.5 PingFangSC-Regular,Helvetica,Arial,Microsoft Yahei,sans-serif;}
 hr {height: .02rem;margin: .1rem 0;border: medium none;border-top: .02rem solid #cacaca;}
 a {color: #25a4bb;text-decoration: none;}
+.clearFloat{
+  zoom:1
+}
+.clearFloat::after{
+  display:table;
+  content:'';
+  clear:both
+}
