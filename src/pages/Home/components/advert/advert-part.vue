@@ -2,11 +2,11 @@
   <div class="part clearFloat">
     <h1>推广广告</h1>
     <div class="box clearFloat" ref="box">
-      <div class="content chose2" v-for="item of list" :key="item.id">
-        <div class="bigBox">
-          <div class="show"><img :src="item.imgUrl1" /></div>
+      <div class="content chose2" v-for="(item, index) of list" :key="item.id">
+        <div class="bigBox" @mouseenter="enter(index)" @mouseleave="leave">
+          <div class="show"><img :src="item.imgUrl1" :alt="item.id" /></div>
           <div class="hidden">
-            <img :src="item.imgUrl2" />
+            <img :src="item.imgUrl2" :alt="item.id" />
           </div>
         </div>
       </div>
@@ -17,45 +17,39 @@
 <script>
 export default {
   name: 'Test',
-  props:{
-    list:Array
+  props: {
+    list: Array
   },
-  data () {
-    return{
-    }
+  data() {
+    return {}
   },
   methods: {
-    auto () {
-      var child=this.$refs.box.children
-      for(let i=0, length=child.length-1;i<=length;i++){
-        if(i===length){
-          child[i].onmouseenter=function () {
-            for(let j=0;j<=length;j++){
-              if(j<i-1){
-                child[j].className='chose content'
-              }
-            }
-          }
+    enter(i) {
+      if(i===this.length) {
+        for (let j = 0, length2=i-1; j <length2; j++) {
+          this.child[j].className = 'chose content'
         }
-        else{
-          child[i].onmouseenter=function () {
-            for(let j=0;j<=length;j++){
-              if(j<i || j>i+1){
-                child[j].className='chose content'
-              }
-            }
-          }
-        }
-        child[i].onmouseleave=function () {
-          for(let j=0;j<=length;j++){
-            child[j].className='content chose2'
+      }else{
+        for (let j = 0; j <= this.length; j++) {
+          if (j < i || j > i + 1) {
+            this.child[j].className = 'chose content'
           }
         }
       }
+    },
+    leave() {
+      for (let j = 0; j <= this.length; j++) {
+        this.child[j].className = 'content chose2'
+      }
     }
   },
-  mounted() {
-    this.auto()
+  computed:{
+    child(){
+      return this.$refs.box.children
+    },
+    length(){
+      return this.$refs.box.children.length-1
+    }
   }
 }
 </script>
