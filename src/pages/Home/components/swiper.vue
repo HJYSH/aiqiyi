@@ -63,7 +63,7 @@ export default {
       }
       ////鼠标移动到某个li上，相对ul的li显示
       for (let i=0;i<=t;i++) {
-        msg[i].onmouseover=function() {
+        msg[i].onmouseenter=function() {
           key=i
           ul.style.left=-i*100+"%"
           for (let i=0 ;i<=t;i++){

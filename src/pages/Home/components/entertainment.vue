@@ -18,8 +18,13 @@
         <span>说唱有新番</span>
       </div>
     </div>
-    <div class="content" ref="content">
-      <div class="content-left">
+    <div class="content" >
+      <div
+        class="content-left"
+        ref="content"
+        @mouseleave="leave"
+        @mouseenter="enter"
+      >
         <div class="left-item" :key="item.id" v-for="item of left1" v-show="show">
           <div class="left-img">
             <img class="img" :src="item.imgUrl" />
@@ -63,6 +68,7 @@
     data(){
       return{
         show:true,
+        timer:null,
         left1:[
           {
         imgUrl:'https://pic1.iqiyipic.com/common/lego/20190327/ddc3e63f89ff470f8ca099b38f69353e.jpg',
@@ -145,20 +151,26 @@
     },
     methods: {
       toggle () {
+        console.log('1')
         this.show=this.show===true?undefined:true
       },
+      enter(){
+        clearInterval(this.timer)
+        this.timer=null
+      },
+      leave(){
+        this.timer = setInterval(this.toggle, 2000)
+      },
       auto(){
-        var timer = setInterval(this.toggle, 2000)
-        this.$refs.content.onmouseenter = function () {
-          clearInterval(timer)
-        }
-        this.$refs.content.onmouseleave = function () {
-          setInterval(this.toggle,2000)
-        }
+        this.timer = setInterval(this.toggle, 2000)
       }
     },
     mounted() {
       this.auto()
+    },
+    beforeDestroy() {
+      clearInterval(this.timer)
+      this.timer=null
     }
   }
 </script>
@@ -243,7 +255,6 @@
           -webkit-border-radius: 50% 0 0 50%
           -moz-border-radius: 50% 0 0 50%
           border-radius: 50% 0 0 50%
-
     .content-right
       flex:1
       overflow: hidden

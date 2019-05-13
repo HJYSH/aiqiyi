@@ -10,6 +10,9 @@
       <home-internet></home-internet>
       <home-entertainment></home-entertainment>
     </div>
+    <div>
+      <router-link to="/page">dianwo</router-link>
+    </div>
   </div>
 </template>
 
