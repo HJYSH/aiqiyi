@@ -11,7 +11,8 @@
       <home-entertainment></home-entertainment>
     </div>
     <div>
-      <router-link to="/page">dianwo</router-link>
+      <p @click="handleChange">点我</p>
+      <router-link to="/page">点我有惊喜</router-link>
     </div>
   </div>
 </template>
@@ -36,6 +37,11 @@ export default {
     HomeInternet,
     HomeEntertainment,
     Test
+  },
+  methods:{
+    handleChange (e){
+      this.$store.dispatch('change',e.target.innerText)
+    }
   }
 }
 </script>

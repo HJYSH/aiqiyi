@@ -1,6 +1,6 @@
 <template>
   <div>
-    page
+    {{this.$store.state.city}}
   </div>
 </template>
 

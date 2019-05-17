@@ -151,7 +151,6 @@
     },
     methods: {
       toggle () {
-        console.log('1')
         this.show=this.show===true?undefined:true
       },
       enter(){
