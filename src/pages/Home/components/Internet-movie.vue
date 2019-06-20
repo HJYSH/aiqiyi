@@ -16,7 +16,7 @@
         <div class="item-content" v-for="inner of item.content" :key="inner.id">
           <div class="content">
             <div>
-              <img class="content-img" :title="inner.h3" :src="inner.imgUrl" />
+              <img class="content-img" :alt="inner.h3" :title="inner.h3" :src="inner.imgUrl" />
             </div>
             <div class="content-desc">
               <h3>{{inner.h3}}</h3>

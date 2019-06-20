@@ -26,10 +26,12 @@ export default {
   methods: {
     enter(i) {
       if(i===this.length) {
+        // 当选中的是最后一项，除了倒数帝二项和最后一项，都添加class--chose，宽度为0
         for (let j = 0, length2=i-1; j <length2; j++) {
           this.child[j].className = 'chose content'
         }
       }else{
+        // 其他的为选中的选项和他的后一位选项之外的项目添加chose
         for (let j = 0; j <= this.length; j++) {
           if (j < i || j > i + 1) {
             this.child[j].className = 'chose content'

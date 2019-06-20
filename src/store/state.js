@@ -3,9 +3,7 @@ try {
   if (localStorage.home) {
     de = localStorage.home
   }
-}catch (e) {
-
-}
+}catch (e) {}
 
 export default {
   city: de
