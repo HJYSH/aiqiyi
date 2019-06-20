@@ -15,6 +15,9 @@
         </li>
       </ul>
     </div>
+    <div class="pagination">
+      <div class="pagination-item" v-for="(item, index) of list" :key="item.id" :class="{pink:index===number}">{{index+1}}</div>
+    </div>
     <div class="desc">
       <ul ref="msg">
         <li
@@ -35,8 +38,8 @@
     name: 'HomeSwiper2',
     data(){
       return{
-        number:0,
-        timer:'',
+        number:0, // 轮播图显示与否的依赖对象
+        timer:'', // 定义循环
         list:[
           {
             id:'001',
@@ -66,6 +69,7 @@
       }
     },
     methods: {
+      // 轮播依赖方法
       autoPlay () {
         if(this.number<this.length){
           this.number++
@@ -73,17 +77,21 @@
           this.number=0
         }
       },
+      // 鼠标移动到轮播组件上的时候停止轮播
       handleStop () {
         clearInterval(this.timer)
       },
+      // 鼠标离开轮播组件上的时候继续轮播
       handleAuto () {
         this.timer=setInterval(this.autoPlay,2000)
       },
+      // 鼠标移动到相应分页上的时候 轮播到相应图片
       handleChange (index) {
         this.number=index
       }
     },
     computed:{
+      // 获取轮播图的长度
       length () {
         return this.$refs.ul.children.length-1
       }
@@ -113,6 +121,17 @@
           width:100%
           img
             width:100%
+    .pagination
+      position:absolute
+      width:100%
+      bottom:20px
+      display: flex
+      justify-content:center
+      .pink
+        background:green
+      .pagination-item
+        width:0.5rem
+        text-align: center
     .desc
       position: absolute
       top:0
