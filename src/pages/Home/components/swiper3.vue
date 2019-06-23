@@ -15,7 +15,7 @@
       </ul>
     </div>
     <div class="pagination">
-      <div class="pagination-item" v-for="(item, index) of list" :key="item.index" :class="{pink:index===number||number-index===list.length-1}" v-if="index!==list.length-1">{{index+1}}</div>
+      <div class="pagination-item" v-for="(item, index) of list" :key="item.index" :class="{pink:index===number||index===key}" v-if="index!==length">{{index+1}}</div>
     </div>
     <div class="desc">
       <ul ref="msg">
@@ -23,8 +23,8 @@
           v-for="(item, index) of list"
           :key="item.id"
           @mouseenter="handleChange(index)"
-          :class="{handleSelected: index===number||number-index===list.length-1}"
-          v-if="index!==list.length-1"
+          :class="{handleSelected: index===number||index===key}"
+          v-if="index!==length"
         >
           <span class="title">{{item.title}}</span>
           <span class="hidden"> : </span>
@@ -81,7 +81,7 @@
     methods: {
       // 轮播依赖方法
       autoPlay () {
-        this.$refs.ul.style.width= (this.length+1)*this.$refs.box.offsetWidth+'px' // 设置盒子的宽度
+        this.$refs.ul.style.width= (this.length+1)*this.$refs.box.offsetWidth+'px' // 设置ul元素的宽度
         this.number++
         if(this.number>this.length){
           this.$refs.ul.style.left=0
@@ -120,7 +120,10 @@
     computed:{
       // 获取轮播图的长度
       length () {
-        return this.$refs.ul.children.length-1
+        return this.list.length-1
+      },
+      key () {
+        return this.number-this.length
       }
     },
     mounted() {
