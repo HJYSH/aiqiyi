@@ -23,7 +23,7 @@
           v-for="(item, index) of list"
           :key="item.id"
           @mouseenter="handleChange(index)"
-          :class="{handleSelected: index===number}"
+          :class="{handleSelected: index===number||number-index===list.length-1}"
           v-if="index!==list.length-1"
         >
           <span class="title">{{item.title}}</span>
@@ -87,9 +87,11 @@
           this.$refs.ul.style.left=0
           this.number=1
         }
-        this.animate(this.$refs.ul,-this.number*this.$refs.box.offsetWidth)
+        this.animate()
       },
-      animate (e,target) {
+      animate () {
+        const target=-this.number*this.$refs.box.offsetWidth
+        const e = this.$refs.ul
         clearInterval(this.timer2)
         const speed = target>e.offsetLeft? 50 :-50
         this.timer2 = setInterval(function() {
@@ -112,6 +114,7 @@
       // 鼠标移动到相应分页上的时候 轮播到相应图片
       handleChange (index) {
         this.number=index
+        this.animate()
       }
     },
     computed:{
