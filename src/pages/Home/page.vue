@@ -1,12 +1,16 @@
 <template>
   <div>
-    {{this.$store.state.city}}
+    <home-swiper3></home-swiper3>
   </div>
 </template>
 
 <script>
+import HomeSwiper3 from './components/swiper3'
 export default {
-  name: 'Page'
+  name: 'Page',
+  components:{
+    HomeSwiper3
+  }
 }
 </script>
 

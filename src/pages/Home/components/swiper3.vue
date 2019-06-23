@@ -1,22 +1,21 @@
 <template>
   <div class="swiper"
-       ref="swiper"
        @mouseenter="handleStop"
        @mouseleave="handleAuto"
   >
-    <div class="box">
+    <div class="box" ref="box">
       <ul id="ul" ref="ul">
         <li
-          v-for="(item, index) of list"
-          v-show="number===index"
+          v-for="item of list"
           :key="item.id"
+          :ref="item.index"
         >
           <img :src="item.imgSrc"/>
         </li>
       </ul>
     </div>
     <div class="pagination">
-      <div class="pagination-item" v-for="(item, index) of list" :key="item.id" :class="{pink:index===number}">{{index+1}}</div>
+      <div class="pagination-item" v-for="(item, index) of list" :key="item.index" :class="{pink:index===number||number-index===list.length-1}" v-if="index!==list.length-1">{{index+1}}</div>
     </div>
     <div class="desc">
       <ul ref="msg">
@@ -25,6 +24,7 @@
           :key="item.id"
           @mouseenter="handleChange(index)"
           :class="{handleSelected: index===number}"
+          v-if="index!==list.length-1"
         >
           <span class="title">{{item.title}}</span>
           <span class="hidden"> : </span>
@@ -37,11 +37,13 @@
 
 <script>
   export default {
-    name: 'HomeSwiper2',
+    name: 'HomeSwiper3',
     data(){
       return{
         number:0, // 轮播图显示与否的依赖对象
         timer:'', // 定义循环
+        timer2:'',
+        list2:[],
         list:[
           {
             id:'001',
@@ -66,6 +68,12 @@
             imgSrc:'//pic0.iqiyipic.com/common/lego/20190319/8bb1d5556b804534af532f6bd31f0fea.jpg',
             title:'扶摇',
             desc:'最终的结局最美的邂逅'
+          },
+          {
+            id:'005',
+            imgSrc:'//pic1.iqiyipic.com/common/lego/20190319/9654cd0b58854f43a040b883feab70cf.webp',
+            title:'青春斗',
+            desc:'郑爽为室友脱单操碎心'
           }
         ]
       }
@@ -73,11 +81,25 @@
     methods: {
       // 轮播依赖方法
       autoPlay () {
-        if(this.number<this.length){
-          this.number++
-        } else {
-          this.number=0
+        this.$refs.ul.style.width= (this.length+1)*this.$refs.box.offsetWidth+'px' // 设置盒子的宽度
+        this.number++
+        if(this.number>this.length){
+          this.$refs.ul.style.left=0
+          this.number=1
         }
+        this.animate(this.$refs.ul,-this.number*this.$refs.box.offsetWidth)
+      },
+      animate (e,target) {
+        clearInterval(this.timer2)
+        const speed = target>e.offsetLeft? 50 :-50
+        this.timer2 = setInterval(function() {
+          const val = target -e.offsetLeft
+          e.style.left=e.offsetLeft+speed+'px'
+          if(Math.abs(val)<Math.abs(speed)){
+            e.style.left = target +'px'
+            clearInterval(this.timer2)
+          }
+        },16)
       },
       // 鼠标移动到轮播组件上的时候停止轮播
       handleStop () {
@@ -99,6 +121,7 @@
       }
     },
     mounted() {
+      this.$refs.ul.style.width= (this.length+1)*this.$refs.box.offsetWidth+'px'
       this.timer=setInterval(this.autoPlay,2000)
     },
     // 离开页面后停止循环
@@ -119,6 +142,7 @@
       ul
         position: relative
         top:0
+        display:flex
         li
           width:100%
           img
