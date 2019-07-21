@@ -11,6 +11,7 @@
       <test style="width:120%"></test>
       <home-internet></home-internet>
       <home-entertainment></home-entertainment>
+      <home-movie></home-movie>
     </div>
     <div>
       <p @click="handleChange">改变</p>
@@ -31,10 +32,12 @@ import Test from './components/advert/advert-part'
 import HomeInternet from './components/Internet-movie'
 import HomeEntertainment from './components/entertainment'
 import {mapMutations} from 'vuex'
+import HomeMovie from "./components/movie-model";
 
 export default {
   name: 'Home',
   components: {
+    HomeMovie,
     HomeSwiper,
     HomeSwiper2,
     HomeSwiper3,
@@ -44,7 +47,7 @@ export default {
     HomeAdvert,
     HomeInternet,
     HomeEntertainment,
-    Test
+    Test,
   },
   methods:{
     handleChange (e){
@@ -59,5 +62,4 @@ export default {
   .content
     width: 1285px
     margin:0 auto
-    overflow: hidden
 </style>
