@@ -15,7 +15,7 @@
         </div>
         <div class="item-content" v-for="inner of item.content" :key="inner.id">
           <div class="content">
-            <div>
+            <div class="content-item">
               <img class="content-img" :alt="inner.h3" :title="inner.h3" :src="inner.imgUrl" />
             </div>
             <div class="content-desc">
@@ -79,7 +79,7 @@ export default {
               id:'002',
               h3:'嗜血将军2白皮少女',
               p:'白皮少女嗜血如命',
-              imgUrl:'https://pic4.iqiyipic.com/image/20190319/ab/a5/v_126318303_m_601_m7_220_124.jpg'
+              imgUrl:'http://pic8.iqiyipic.com/image/20190712/bb/c5/v_132483497_m_601_m1_220_124.jpg'
             },
             {
               id:'003',
@@ -132,8 +132,13 @@ export default {
         width:210px
         padding-right:5px
         .content
+          .content-item
+            width:100%
+            height:0
+            padding-bottom:60%
+            overflow:hidden
           .content-img
-            width:210px
+            width:100%
           .content-desc
             padding-left:10px
             h3
