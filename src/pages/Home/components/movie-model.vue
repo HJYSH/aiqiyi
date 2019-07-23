@@ -4,7 +4,31 @@
       <a class="left-item">
         <div class="item-imge"><img src="http://pic6.iqiyipic.com/image/20190716/44/1a/a_100092253_m_601_m7_260_360.jpg"></div>
         <p class="desc">时间都知道</p>
-        <div class="image-hover">2</div>
+        <div class="image-hover">
+          <video class="hover-video" muted autoplay="autoplay" loop="loop">
+            <source src="//data.video.iqiyi.com/videos/v0/20190722/8d/eb/839c6e644521de637a53e1040304cf4d.mp4?m=v&qd_uri=dash&qd_sc=7cab6b769d99e669d1b4067162966362&pv=0.2&qd_tm=1563851330433&qd_p=715fc053&qdv=1&ssl=1&qd_vip=0&qd_src=01010021010000000000&dis_src=vrs&qd_uid=1388566983&qd_k=6743f8f2acc5f2fe826011fe757dab48&qd_ip=715fc053" type="video/mp4">
+          </video>
+          <div class="video-item">
+            <p class="item-h">时间都知道</p>
+            <p class="item-p">7.4</p>
+          </div>
+          <div class="video-item">
+            <p><span>类型</span>:<span>内地 都市 剧情</span></p>
+            <p>2019</p>
+          </div>
+          <p>更新至13集/44集；VIP会员每日22点更新，非会员次日22点观看</p>
+          <p><span>导演：</span>钟澍佳</p>
+          <p><span>主演：</span>唐嫣/窦骁/杨烁/吕一</p>
+          <p><span>亮点：</span>31岁的时简在前去看望丈夫叶珈成的飞机上偶遇易贸集团老板...</p>
+          <div class="mark">
+            <div class="progress">
+              <div>
+                <div class="star"></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </a>
       <div class="left-item">1</div>
       <div class="left-item">1</div>
@@ -48,14 +72,26 @@
           padding:6px 10px;
         .image-hover
           position:absolute
-          width: 120%
+          width: 140%
           height:0
           padding-bottom: 170%
           top: -5%
           background:#fff
           left:-10%
           z-index:999
+          cursor pointer
           display:none
+          .hover-video
+            width:100%
+          .video-item
+            display: flex
+            justify-content: space-between
+            .item-h
+              font-size :18px
+              color:black
+            .item-p
+              font-size :18px
+              color:#ff6000
         &:hover .image-hover
           display:block
     .movie-right
