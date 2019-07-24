@@ -12,6 +12,7 @@
       <home-internet></home-internet>
       <home-entertainment></home-entertainment>
       <home-movie></home-movie>
+      <home-movie></home-movie>
     </div>
     <div>
       <p @click="handleChange">改变</p>

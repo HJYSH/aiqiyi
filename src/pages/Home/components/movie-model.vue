@@ -6,7 +6,7 @@
         <p class="desc">时间都知道</p>
         <div class="image-hover">
           <video class="hover-video" muted autoplay="autoplay" loop="loop">
-            <source src="//data.video.iqiyi.com/videos/v0/20190722/8d/eb/839c6e644521de637a53e1040304cf4d.mp4?m=v&qd_uri=dash&qd_sc=7cab6b769d99e669d1b4067162966362&pv=0.2&qd_tm=1563851330433&qd_p=715fc053&qdv=1&ssl=1&qd_vip=0&qd_src=01010021010000000000&dis_src=vrs&qd_uid=1388566983&qd_k=6743f8f2acc5f2fe826011fe757dab48&qd_ip=715fc053" type="video/mp4">
+            <source src="//data.video.iqiyi.com/videos/v0/20190723/3a/4c/8d20f56dea9cc8bb13775f64d94f7d33.mp4?m=v&qd_uri=dash&qd_sc=431e27dc896e7b9bdb9c0fd201c3781b&pv=0.2&qd_tm=1563931423791&qd_p=7155ff05&qdv=1&ssl=1&qd_vip=0&qd_src=01010021010000000000&dis_src=vrs&qd_uid=1388566983&qd_k=6743f8f2acc5f2fe826011fe757dab48&qd_ip=7155ff05" type="video/mp4">
           </video>
           <div class="video-item">
             <p class="item-h">时间都知道</p>
@@ -22,9 +22,13 @@
           <p><span>亮点：</span>31岁的时简在前去看望丈夫叶珈成的飞机上偶遇易贸集团老板...</p>
           <div class="mark">
             <div class="progress">
-              <div>
-                <div class="star"></div>
-                <div></div>
+              <div class="star" ref="star"></div>
+              <div class="mouse-enter">
+                <div class="enter-item" @mouseenter="changeProgress(1)" @mouseleave="mouseLearve" @click="handleChange(1)"></div>
+                <div class="enter-item" @mouseenter="changeProgress(2)" @mouseleave="mouseLearve" @click="handleChange(2)"></div>
+                <div class="enter-item" @mouseenter="changeProgress(3)" @mouseleave="mouseLearve" @click="handleChange(3)"></div>
+                <div class="enter-item" @mouseenter="changeProgress(4)" @mouseleave="mouseLearve" @click="handleChange(4)"></div>
+                <div class="enter-item" @mouseenter="changeProgress(5)" @mouseleave="mouseLearve" @click="handleChange(5)"></div>
               </div>
             </div>
           </div>
@@ -45,7 +49,23 @@
 
 <script>
   export default {
-    name: 'HomeMovie'
+    name: 'HomeMovie',
+    data(){
+      return{
+        progress: 0
+      }
+    },
+    methods:{
+      changeProgress(e) {
+        this.$refs.star.style.width=25*e+'px'
+      },
+      mouseLearve() {
+        this.$refs.star.style.width=this.progress*25 + 'px'
+      },
+      handleChange(e) {
+        this.progress=e
+      }
+    }
   }
 </script>
 
@@ -74,13 +94,13 @@
           position:absolute
           width: 140%
           height:0
-          padding-bottom: 170%
+          padding-bottom: 200%
           top: -5%
           background:#fff
           left:-10%
           z-index:999
           cursor pointer
-          display:none
+          //display:none
           .hover-video
             width:100%
           .video-item
@@ -92,6 +112,29 @@
             .item-p
               font-size :18px
               color:#ff6000
+          .mark
+            height:50px
+            .progress
+              position:relative
+              width:125px
+              background:url("https://www.iqiyipic.com/common/fix/site-v4/grade-star.png") no-repeat 0 0
+              margin-left:10px
+              height:20px
+              .star
+                background:url("https://www.iqiyipic.com/common/fix/site-v4/grade-star.png") no-repeat 0 -20px
+                width:0
+                height:20px
+              .mouse-enter
+                position:absolute
+                top:0
+                display: flex
+                justify-content left
+                z-index:9999
+                .enter-item
+                  width:15px
+                  height:20px
+                  overflow: hidden
+                  padding-right:10px
         &:hover .image-hover
           display:block
     .movie-right
