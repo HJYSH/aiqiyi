@@ -20,18 +20,7 @@
           <p><span>导演：</span>钟澍佳</p>
           <p><span>主演：</span>唐嫣/窦骁/杨烁/吕一</p>
           <p><span>亮点：</span>31岁的时简在前去看望丈夫叶珈成的飞机上偶遇易贸集团老板...</p>
-          <div class="mark">
-            <div class="progress">
-              <div class="star" ref="star"></div>
-              <div class="mouse-enter">
-                <div class="enter-item" @mouseenter="changeProgress(1)" @mouseleave="mouseLearve" @click="handleChange(1)"></div>
-                <div class="enter-item" @mouseenter="changeProgress(2)" @mouseleave="mouseLearve" @click="handleChange(2)"></div>
-                <div class="enter-item" @mouseenter="changeProgress(3)" @mouseleave="mouseLearve" @click="handleChange(3)"></div>
-                <div class="enter-item" @mouseenter="changeProgress(4)" @mouseleave="mouseLearve" @click="handleChange(4)"></div>
-                <div class="enter-item" @mouseenter="changeProgress(5)" @mouseleave="mouseLearve" @click="handleChange(5)"></div>
-              </div>
-            </div>
-          </div>
+          <movie-star></movie-star>
         </div>
       </a>
       <div class="left-item">1</div>
@@ -48,8 +37,13 @@
 </template>
 
 <script>
+  import MovieStar from "./movie/star";
   export default {
     name: 'HomeMovie',
+    components:{
+      MovieStar
+
+    },
     data(){
       return{
         progress: 0
@@ -92,7 +86,7 @@
           padding:6px 10px;
         .image-hover
           position:absolute
-          width: 140%
+          width: 120%
           height:0
           padding-bottom: 200%
           top: -5%
@@ -100,7 +94,8 @@
           left:-10%
           z-index:999
           cursor pointer
-          //display:none
+          display:none
+          box-shadow : 1px 1px 8px #888888
           .hover-video
             width:100%
           .video-item
@@ -112,29 +107,6 @@
             .item-p
               font-size :18px
               color:#ff6000
-          .mark
-            height:50px
-            .progress
-              position:relative
-              width:125px
-              background:url("https://www.iqiyipic.com/common/fix/site-v4/grade-star.png") no-repeat 0 0
-              margin-left:10px
-              height:20px
-              .star
-                background:url("https://www.iqiyipic.com/common/fix/site-v4/grade-star.png") no-repeat 0 -20px
-                width:0
-                height:20px
-              .mouse-enter
-                position:absolute
-                top:0
-                display: flex
-                justify-content left
-                z-index:9999
-                .enter-item
-                  width:15px
-                  height:20px
-                  overflow: hidden
-                  padding-right:10px
         &:hover .image-hover
           display:block
     .movie-right
