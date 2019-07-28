@@ -46,20 +46,12 @@
     },
     methods:{
       changeProgress(e) {
-        if(e%2===0){
-          this.$refs.star.style.width=12.5*e+'px'
-        }else{
-          this.$refs.star.style.width=12.5*(e-1)+7.5+'px'
-        }
+        this.$refs.star.style.width=12.5*e-5+'px'
         this.progress=e
       },
       mouseLearve() {
         this.progress=this.click
-        if(this.progress%2===0){
-          this.$refs.star.style.width=12.5*this.progress+'px'
-        }else{
-          this.$refs.star.style.width=12.5*(this.progress-1)+7.5+'px'
-        }
+        this.$refs.star.style.width=12.5*this.progress-5+'px'
       },
       handleChange(e) {
         this.click=e
