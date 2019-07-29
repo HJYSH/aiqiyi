@@ -43,22 +43,6 @@
     components:{
       MovieStar
 
-    },
-    data(){
-      return{
-        progress: 0
-      }
-    },
-    methods:{
-      changeProgress(e) {
-        this.$refs.star.style.width=25*e+'px'
-      },
-      mouseLearve() {
-        this.$refs.star.style.width=this.progress*25 + 'px'
-      },
-      handleChange(e) {
-        this.progress=e
-      }
     }
   }
 </script>
