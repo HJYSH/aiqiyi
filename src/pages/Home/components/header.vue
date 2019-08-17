@@ -1,5 +1,5 @@
 <template>
-  <div class="body">
+  <div class="body" ref="header" :style="opacityStyle">
     <div class="header">
       <div class="header-left"><img class="left-img" src="https://www.iqiyipic.com/common/fix/site-v4/sprite-headLogo-index.png" /> </div>
       <div class="header-center">
@@ -29,14 +29,42 @@ export default {
   name: 'HomeHeader',
   data() {
     return{
+      opacityStyle: {
+        opacity: 1,
+        position: 'static'
+      }
     }
+  },
+  methods:{
+    // 当网页下滑距离到达一定位置之后，改变header的显示模式，使其始终出现在网页顶部，
+    handleScroll() {
+      const scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      if ( scroll>600) {
+        let opacity = scroll / 700
+        opacity = opacity > 1 ?1 : 0
+        this.opacityStyle = { opacity ,position:'static'}
+        if (scroll>700){
+          this.opacityStyle = { opacity ,position:'fixed',top:0}
+        }
+      } else{
+        this.opacityStyle = { opacity:1 ,position:'static',top:0}
+      }
+    }
+  },
+  mounted () {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
 
 <style lang="stylus" scoped>
   .body
+    width:100%
     background: #232325
+    transition: all 2s linear
     .header
       position: relative
       width:1285px
